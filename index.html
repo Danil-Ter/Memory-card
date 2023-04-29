@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>find a couple</title>
+    <link rel="stylesheet" href="./pages/index.css" />
+  </head>
+  <body class="page">
+    <div class="start-screen">
+      <h1 class="start-screen__title title">Game "Find paired pictures"</h1>
+      <button type="button" class="start-screen__button button">
+        <a href="#time-screen" class="link">Start</a>
+      </button>
+    </div>
+
+    <div class="time-screen" id="time-screen">
+      <h1 class="time-screen__title title">Choose game duration</h1>
+      <div class="time-screen__wrapper">
+        <button
+          type="button"
+          class="time-screen__button button"
+          data-time="30"
+          id="time-screen__button_30s"
+        >
+          <a href="#game-screen" class="link time-screen__link">30 sec</a>
+        </button>
+        <button
+          type="button"
+          class="time-screen__button button"
+          data-time="45"
+          id="time-screen__button_45s"
+        >
+          <a href="#game-screen" class="link time-screen__link">45 sec</a>
+        </button>
+        <button
+          type="button"
+          class="time-screen__button button"
+          data-time="60"
+          id="time-screen__button_60s"
+        >
+          <a href="#game-screen" class="link time-screen__link">1 min</a>
+        </button>
+      </div>
+    </div>
+
+    <div class="game-screen" id="game-screen">
+      <header class="header">
+        <h2 class="header__title">Game "Find paired pictures"</h2>
+        <div class="header__wrapper">
+          <p class="header__text">
+            You guessed
+            <span class="header__span-text" id="counter-of-disabled-cards"
+              >0</span
+            >
+            out
+            <span class="header__span-text" id="total-number-of-cards"></span>
+            cards
+          </p>
+          <p class="header__text">
+            Timer <span class="header__span-text" id="timer">00:00</span>
+          </p>
+        </div>
+      </header>
+      <main class="cards">
+        <template class="template">
+          <div class="card">
+            <div class="card-back"></div>
+            <div class="card-front"></div>
+          </div>
+        </template>
+      </main>
+      <footer class="footer">
+        <ul class="footer__links">
+          <li class="footer__link footer__link_type_game-rules">
+            Rules of the game
+          </li>
+          <li class="footer__link footer__link_type_new-game">
+            <a class="link" href="#time-screen">Start over</a>
+          </li>
+        </ul>
+      </footer>
+    </div>
+
+    <div class="popup popup_type_game-victory">
+      <div class="popup__content popup__content_type_game-victory">
+        <button type="button" class="popup__close-button"></button>
+        <h1 class="popup__title popup__title_type_game-victory">
+          Congratulations! You won!
+        </h1>
+        <button type="button" class="popup__start-button button">
+          <a class="link" href="#time-screen">Start over</a>
+        </button>
+      </div>
+    </div>
+
+    <div class="popup popup_type_game-rules">
+      <div class="popup__content popup__content_type_game-rules">
+        <button type="button" class="popup__close-button"></button>
+        <h1 class="popup__title popup__title_type_game-rules">
+          Rules of the game
+        </h1>
+        <p class="popup__text">
+          At the start of the game, the cards are randomly placed face down on
+          the screen.
+        </p>
+        <p class="popup__text">
+          The player opens any two cards. If the color on them matches, then
+          they remain open, and the player reveals the next two cards. If the
+          cards do not match in color, then both cards are turned over and the
+          player starts the turn again. Irok must open all the cards before the
+          time runs out
+        </p>
+        <p class="popup__text">
+          The game ends when all the cards on the table are exposed, or if time
+          has run out.
+        </p>
+      </div>
+    </div>
+
+    <div class="popup popup_type_game-loose">
+      <div class="popup__content popup__content_type_game-loose">
+        <button type="button" class="popup__close-button"></button>
+        <h1 class="popup__title popup__title_type_game-loose">
+          Unfortunately you lost...
+        </h1>
+        <button type="button" class="popup__start-button button">
+          <a class="link" href="#time-screen"> Start over</a>
+        </button>
+      </div>
+    </div>
+
+    <script type="module" src="scripts/index.js"></script>
+  </body>
+</html>
